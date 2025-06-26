@@ -19,3 +19,7 @@ app.get("/", (req, res) => {
 app.get("/portfolio", (req, res) => {
   res.render("home")
 })
+app.get("/portfolio/:page", (req, res) => {
+  let { page } = req.params;
+  res.render("home2.ejs", { page: page })
+});

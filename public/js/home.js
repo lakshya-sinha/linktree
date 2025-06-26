@@ -13,28 +13,3 @@ gsap.ticker.add((time) => {
 // Disable lag smoothing in GSAP to prevent any delay in scroll animations
 gsap.ticker.lagSmoothing(0); 
 
-let cursor = document.querySelector("#cursor")
-window.addEventListener("mousemove", (e) => {
-  gsap.to(cursor, {
-    x: e.pageX,
-    y: e.pageY,
-    duration: 0.3,
-    ease: "power2.out"
-  });
-});
-let h1= document.querySelector(".pf-container h1");
-gsap.from(h1, {
-})
-gsap.timeline()
-  .from(".pf-container h1", { 
-  translateY: "-20px",
-  opacity: 0.8,
-  duration: 0.4,ease: "power1.out" })
-  .from(".pf-container p", { 
-  translateY: "-20px",
-  opacity: 0.8,
-  duration: 0.4, ease: "power1.out" })
-  .from(".pf-button-wrapper", { 
-  translateY: "-20px",
-  opacity: 0.8,
-  duration: 0.4,ease: "power1.out" });

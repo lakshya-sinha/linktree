@@ -1,0 +1,49 @@
+
+<div class="contact-form">
+
+  <h1>About Me</h1>
+  <div class="line2"></div>
+  <br><br>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d617941.4078164729!2d86.99410934352112!3d25.234510484754296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1751178839252!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <br>
+  <h1>Contact Form</h1>
+
+  <form id="contact-form">
+    <input type="text" placeholder="Full name" name="name" required class="name">
+    <input type="email" placeholder="Email address" name="email" required class="email">
+    <input type="text" placeholder="Your Message" name="message" required class="message">
+    <button type="submit"><i class="ri-message-3-fill"></i> Send Message</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    const formData = {
+      data: {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      }
+    };
+
+    fetch("https://sheetdb.io/api/v1/r0dgo4bd7v77f", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("Message sent successfully!");
+      this.reset();
+    })
+    .catch(error => {
+      alert("Something went wrong!");
+      console.error(error);
+    });
+  });
+</script>
+
